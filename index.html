@@ -383,6 +383,21 @@
   @media (prefers-reduced-motion: reduce) {
     .drawer, .tile-chev { transition: none; }
   }
+
+  /* cabin mini-map */
+  .cabin-map {
+    background: linear-gradient(165deg, #eef2e8 0%, #e6efe2 100%);
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  .cabin-map-label {
+    font-size: 0.72rem; font-weight: 600; color: var(--pine);
+    text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.5rem;
+  }
+  .cabin-map svg { width: 100%; height: auto; display: block; }
+  .cabin-map-foot { font-size: 0.76rem; color: var(--muted); margin-top: 0.5rem; line-height: 1.45; }
 </style>
 </head>
 <body>
@@ -824,7 +839,7 @@
         <div class="tile-daymark util">🏠</div>
         <div class="tile-headinfo">
           <div class="tile-title">The Cabins</div>
-          <div class="tile-sub">3 walkable rentals · Destination Big Bear</div>
+          <div class="tile-sub">3 rentals near Bow Canyon Rd · all walkable</div>
         </div>
         <div class="tile-chev">▾</div>
       </div>
@@ -834,13 +849,74 @@
         <span class="chip chip-green">Dreamwood · 18</span>
       </div>
       <div class="drawer"><div class="drawer-inner">
+        <div class="cabin-map">
+          <div class="cabin-map-label">📍 Bow Canyon Rd · Big Bear Lake</div>
+          <svg viewBox="0 0 340 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Map showing our 3 cabins: Dreamwood and Geronimo right next to each other, with 3 other houses between Geronimo and Snow House">
+            <!-- pine trees backdrop -->
+            <g opacity="0.16" fill="#1d3b2f">
+              <polygon points="24,46 32,66 16,66"/><polygon points="24,56 34,80 14,80"/>
+              <polygon points="308,40 316,60 300,60"/><polygon points="308,50 318,74 298,74"/>
+              <polygon points="40,210 48,230 32,230"/><polygon points="40,220 50,244 30,244"/>
+              <polygon points="300,200 308,220 292,220"/><polygon points="300,210 310,234 290,234"/>
+            </g>
+
+            <!-- Bow Canyon Rd (runs down the left/top, curving) -->
+            <path d="M 30,30 Q 70,90 95,120 T 150,185" stroke="#c9bfa8" stroke-width="20" fill="none" stroke-linecap="round"/>
+            <path d="M 30,30 Q 70,90 95,120 T 150,185" stroke="#fdfcf9" stroke-width="2.5" fill="none" stroke-dasharray="7 9" stroke-linecap="round"/>
+            <text x="38" y="78" font-family="DM Sans, sans-serif" font-size="9" fill="#6b7770" font-weight="600" transform="rotate(58 38 78)">BOW CANYON RD</text>
+
+            <!-- Connecting road curving toward Snow House (toward Shasta/Moonridge) -->
+            <path d="M 150,185 Q 200,215 250,205" stroke="#c9bfa8" stroke-width="16" fill="none" stroke-linecap="round"/>
+            <path d="M 150,185 Q 200,215 250,205" stroke="#fdfcf9" stroke-width="2" fill="none" stroke-dasharray="6 8" stroke-linecap="round"/>
+
+            <!-- OUR CABIN 3: Dreamwood (top, on Bow Canyon) -->
+            <g>
+              <circle cx="78" cy="92" r="15" fill="#e8943a" stroke="#fff" stroke-width="2"/>
+              <text x="78" y="97" font-family="Bricolage Grotesque, sans-serif" font-size="13" fill="#fff" font-weight="700" text-anchor="middle">3</text>
+              <text x="100" y="90" font-family="DM Sans, sans-serif" font-size="9" fill="#1a1f1c" font-weight="700" text-anchor="start">Dreamwood</text>
+              <text x="100" y="101" font-family="DM Sans, sans-serif" font-size="7.5" fill="#6b7770" text-anchor="start">43591 · ★ dinner hub</text>
+            </g>
+
+            <!-- OUR CABIN 1: Geronimo (right next to Dreamwood) -->
+            <g>
+              <circle cx="103" cy="128" r="15" fill="#2f6b3d" stroke="#fff" stroke-width="2"/>
+              <text x="103" y="133" font-family="Bricolage Grotesque, sans-serif" font-size="13" fill="#fff" font-weight="700" text-anchor="middle">1</text>
+              <text x="125" y="126" font-family="DM Sans, sans-serif" font-size="9" fill="#1a1f1c" font-weight="700" text-anchor="start">Geronimo</text>
+              <text x="125" y="137" font-family="DM Sans, sans-serif" font-size="7.5" fill="#6b7770" text-anchor="start">43601</text>
+            </g>
+
+            <!-- "next to each other" bracket between 3 and 1 -->
+            <text x="58" y="118" font-family="DM Sans, sans-serif" font-size="7.5" fill="#2f6b3d" font-weight="600" text-anchor="middle" transform="rotate(52 58 118)">adjacent</text>
+
+            <!-- 3 OTHER HOUSES between Geronimo and Snow House (neutral grey) -->
+            <g fill="#b8b0a0">
+              <rect x="150" y="168" width="17" height="17" rx="3" transform="rotate(12 158 176)"/>
+              <rect x="182" y="183" width="17" height="17" rx="3" transform="rotate(-6 190 191)"/>
+              <rect x="214" y="186" width="17" height="17" rx="3" transform="rotate(8 222 194)"/>
+            </g>
+            <text x="190" y="232" font-family="DM Sans, sans-serif" font-size="8" fill="#6b7770" text-anchor="middle">3 houses between</text>
+
+            <!-- OUR CABIN 2: Snow House (down toward Shasta) -->
+            <g>
+              <circle cx="252" cy="188" r="15" fill="#1f5a7d" stroke="#fff" stroke-width="2"/>
+              <text x="252" y="193" font-family="Bricolage Grotesque, sans-serif" font-size="13" fill="#fff" font-weight="700" text-anchor="middle">2</text>
+              <text x="252" y="216" font-family="DM Sans, sans-serif" font-size="9" fill="#1a1f1c" font-weight="700" text-anchor="middle">Snow House</text>
+              <text x="252" y="227" font-family="DM Sans, sans-serif" font-size="7.5" fill="#6b7770" text-anchor="middle">43649</text>
+            </g>
+
+            <!-- distance marker Geronimo -> Snow House -->
+            <text x="172" y="158" font-family="DM Sans, sans-serif" font-size="8" fill="#6b7770" text-anchor="middle">🚶 476 ft · ~2 min</text>
+          </svg>
+          <div class="cabin-map-foot"><strong>Dreamwood (3)</strong> and <strong>Geronimo (1)</strong> are right next to each other. <strong>Snow House (2)</strong> is about 476 ft away (a 2-min walk), with 3 other homes in between. Tap any address below for directions.</div>
+        </div>
+
         <div class="slot">
           <div class="slot-time">C1</div>
           <div class="slot-body">
             <div class="slot-title">Geronimo Lodge · 8 people</div>
             <div class="slot-desc">3,700 sq ft, sleeps 16. Private pickleball court, putting green, fire pit, hot tub, propane BBQ, pool table, movie theater room, gourmet kitchen. The pickleball court is a weekend magnet.</div>
             <div class="slot-tags"><span class="chip chip-green">check-in Fri Jul 24</span></div>
-            <div class="slot-meta"><a href="https://www.airbnb.com/rooms/17333334" style="color:inherit;">Airbnb listing →</a></div>
+            <div class="slot-meta">📍 <a href="https://maps.google.com/?q=43601+Bow+Canyon+Rd+Big+Bear+Lake+CA+92315" style="color:inherit;">43601 Bow Canyon Rd →</a> &nbsp;·&nbsp; <a href="https://www.airbnb.com/rooms/17333334" style="color:inherit;">Airbnb →</a></div>
           </div>
         </div>
         <div class="slot">
@@ -849,7 +925,7 @@
             <div class="slot-title">Snow House · 4 people</div>
             <div class="slot-desc">4 BR, sleeps 12. Fenced half-acre yard (great for the little ones), deck w/ hot tub, firepit, propane grill, Pac-Man arcade, treehouse bunk room.</div>
             <div class="slot-tags"><span class="chip chip-green">check-in Fri Jul 24</span></div>
-            <div class="slot-meta"><a href="https://www.airbnb.com/rooms/746227645410044247" style="color:inherit;">Airbnb listing →</a></div>
+            <div class="slot-meta">📍 <a href="https://maps.google.com/?q=43649+Bow+Canyon+Rd+Big+Bear+Lake+CA+92315" style="color:inherit;">43649 Bow Canyon Rd →</a> &nbsp;·&nbsp; <a href="https://www.airbnb.com/rooms/746227645410044247" style="color:inherit;">Airbnb →</a></div>
           </div>
         </div>
         <div class="slot">
@@ -858,10 +934,10 @@
             <div class="slot-title">Dreamwood Lodge · 18 people <span style="color:var(--amber-chip-text);">★ dinner hub</span></div>
             <div class="slot-desc">7 BR, sleeps 16. Furnished deck w/ mountain views, spacious yard, charcoal + propane grills, hot tub, billiards/foosball/poker, private movie theater. The natural gathering spot for the big dinner &amp; movie night.</div>
             <div class="slot-tags"><span class="chip chip-amber">early check-in Thu Jul 23</span></div>
-            <div class="slot-meta"><a href="https://www.vrbo.com/786778" style="color:inherit;">VRBO listing →</a></div>
+            <div class="slot-meta">📍 <a href="https://maps.google.com/?q=43591+Bow+Canyon+Rd+Big+Bear+Lake+CA+92315" style="color:inherit;">43591 Bow Canyon Rd →</a> &nbsp;·&nbsp; <a href="https://www.vrbo.com/786778" style="color:inherit;">VRBO →</a></div>
           </div>
         </div>
-        <div class="callout">🗓️ Dreamwood allows <strong>early check-in Thursday Jul 23</strong> for ~10–12 early arrivals (Cabins 1 &amp; 3). Cabins 1 &amp; 2 check in Friday at 4 PM. Check in at the Destination Big Bear office first. Coordinator: <strong>Tony Illig</strong>.</div>
+        <div class="callout">📍 Dreamwood (43591) &amp; Geronimo (43601) are right next to each other near Bow Canyon Rd; Snow House (43649) is ~476 ft away (a 2-min walk), with 3 homes in between. All easily walkable.<br><br>🗓️ Dreamwood allows <strong>early check-in Thursday Jul 23</strong> for ~10–12 early arrivals (Cabins 1 &amp; 3). Cabins 1 &amp; 2 check in Friday at 4 PM. Check in at the Destination Big Bear office first. Coordinator: <strong>Tony Illig</strong>.</div>
       </div></div>
     </section>
 
